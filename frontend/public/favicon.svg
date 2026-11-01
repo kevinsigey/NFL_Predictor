@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#0b0d10"/>
+  <g transform="rotate(-32 32 32)">
+    <clipPath id="ball"><ellipse cx="32" cy="32" rx="21" ry="13.5"/></clipPath>
+    <ellipse cx="32" cy="32" rx="21" ry="13.5" fill="#9a4b21"/>
+    <g clip-path="url(#ball)">
+      <rect x="16.5" y="16" width="4.5" height="32" fill="#f8fafc"/>
+      <rect x="43" y="16" width="4.5" height="32" fill="#f8fafc"/>
+    </g>
+    <ellipse cx="32" cy="32" rx="21" ry="13.5" fill="none" stroke="#5f2d12" stroke-width="2"/>
+    <line x1="25" y1="32" x2="39" y2="32" stroke="#f8fafc" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M28 29.4 v5.2 M32 29.4 v5.2 M36 29.4 v5.2" stroke="#f8fafc" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+</svg>
