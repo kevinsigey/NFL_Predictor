@@ -18,6 +18,7 @@ from fastapi import APIRouter, HTTPException, Response
 from ..config import (
     CURRENT_SEASON,
     DEPTH_CHARTS_CACHE_DIR,
+    MODELS_DIR,
     PUBLIC_MODE,
     PUBLIC_SNAPSHOT_PATH,
     PUBLIC_SNAPSHOT_REFRESH_URL,
@@ -34,7 +35,7 @@ from ..features import player_usage
 from ..features import power_ratings
 from ..models import game_outcome, manifest, player_props, season_projection
 from ..odds import value_bets
-from ..tracking import store
+from ..tracking import prop_grading, store
 
 router = APIRouter(prefix="/api")
 
@@ -1181,6 +1182,25 @@ def get_track_record_picks():
     `games.per_pick`, served on their own so the summary can defer them."""
     games = _full_track_record().get("games") or {}
     return {"per_pick": games.get("per_pick") or []}
+
+
+@router.get("/prop-grading")
+def get_prop_grading():
+    """Every counted player projection for the yardage markets, graded
+    against the actual box score in units of the model's own published
+    holdout error -- the per-pick counterpart of the track record's
+    aggregate prop MAE, with each day's most confident calls (the model's
+    biggest moves from a player's own season-to-date average) and biggest
+    surprises. Computed from stored predictions and outcomes only, like
+    `/track-record`: no live pipeline runs for this route in any mode, and
+    the payload is deliberately NOT baked into the public snapshot -- that
+    artifact is built in CI, where the tracking store does not exist, so a
+    baked grading would be built against an empty store. The one snapshot
+    input is the team placement (`recent_team` per week), which the prop
+    table itself never stored."""
+    stats = prop_grading.prop_bands(MODELS_DIR)
+    team_map = prop_grading.team_map_from_snapshot(_public_snapshot())
+    return prop_grading.build_prop_grading(stats, team_map)
 
 
 @router.get("/kalshi-feed")
