@@ -1,3 +1,5 @@
+import copy
+
 import pandas as pd
 import pytest
 from fastapi.testclient import TestClient
@@ -610,3 +612,77 @@ def test_get_head_to_head_404s_for_unknown_game(client, monkeypatch):
     response = client.get("/api/games/nope/head-to-head?season=2025&week=9")
 
     assert response.status_code == 404
+
+
+# --- Track-record payload split (Sports_Predictor PR #81 contract) ---------
+# `?picks=deferred` returns the summary with NO row-level picks; the game rows
+# move to `/track-record/picks`; a plain request keeps the historical payload.
+
+_SPLIT_RECORD = {
+    "games": {
+        "n_resolved": 2,
+        "pct_moneyline_correct": 0.5,
+        "per_pick": [
+            {"game_id": "2025_01_BAL_KC", "pick": "KC"},
+            {"game_id": "2025_01_BUF_MIA", "pick": "BUF"},
+        ],
+    },
+    "player_props": {
+        "n_resolved": 3,
+        "per_pick": [{"player_id": "00-0036355", "market": "passing_yards"}],
+    },
+    "n_resolved_games": 2,
+}
+
+
+@pytest.fixture
+def split_client(client, monkeypatch):
+    """The shared `client` fixture's store stub carries no pick rows; this one
+    serves a record that does, so the split has something to split. Deep-copied
+    per call because the deferred path strips keys off the dict it is handed."""
+    monkeypatch.setattr(
+        routes.store, "get_track_record",
+        lambda **kwargs: copy.deepcopy(_SPLIT_RECORD),
+    )
+    monkeypatch.setattr(routes.store, "get_calibration", lambda: {"winner": []})
+    monkeypatch.setattr(routes, "current_season_and_week", lambda: (2025, 1))
+    return client
+
+
+def test_track_record_default_still_inlines_per_pick_rows(split_client):
+    response = split_client.get("/api/track-record")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["games"]["per_pick"] == _SPLIT_RECORD["games"]["per_pick"]
+    assert body["player_props"]["per_pick"] == _SPLIT_RECORD["player_props"]["per_pick"]
+    assert body["games"]["n_resolved"] == 2
+    assert body["calibration"] == {"winner": []}
+
+
+def test_track_record_deferred_omits_rows_and_keeps_summary_identical(split_client):
+    response = split_client.get("/api/track-record?picks=deferred")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert "per_pick" not in body["games"]
+    assert "per_pick" not in body["player_props"]
+    expected = copy.deepcopy(_SPLIT_RECORD)
+    del expected["games"]["per_pick"]
+    del expected["player_props"]["per_pick"]
+    expected["calibration"] = {"winner": []}
+    assert body == expected
+
+
+def test_track_record_picks_endpoint_returns_the_game_rows(split_client):
+    response = split_client.get("/api/track-record/picks")
+
+    assert response.status_code == 200
+    assert response.json() == {"per_pick": _SPLIT_RECORD["games"]["per_pick"]}
+
+
+def test_track_record_unknown_picks_value_keeps_full_payload(split_client):
+    body = split_client.get("/api/track-record?picks=inline").json()
+
+    assert body["games"]["per_pick"] == _SPLIT_RECORD["games"]["per_pick"]
+    assert body["player_props"]["per_pick"] == _SPLIT_RECORD["player_props"]["per_pick"]
