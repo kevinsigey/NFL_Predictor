@@ -140,3 +140,52 @@ def test_selected_player_only_receives_model_p(monkeypatch):
     assert mahomes["rungs"][0]["generated_at"] == "2026-10-18T05:00:00+00:00"
     assert "model_p" not in burrow["rungs"][0]
     assert "generated_at" not in burrow["rungs"][0]
+
+
+def test_public_mode_reads_model_p_from_the_snapshot_not_the_live_pipeline(monkeypatch):
+    """PUBLIC_MODE serves /props from the committed snapshot; the market-lines
+    attach must read those same stored rows. Running the live pipeline here
+    made every market-lines request pay a full props computation (~17s) even
+    when the ladders themselves were cached."""
+    from nfl_predictor.api import routes
+
+    data = {"lines": [_one_ladder("t1", "receptions")]}
+    snap = {"player_props": [{
+        "player_name": "Patrick Mahomes", "recent_team": "KC",
+        "receptions_p_over": 0.42, "generated_at": "2026-10-18T05:00:00+00:00",
+    }]}
+    monkeypatch.setattr(routes, "PUBLIC_MODE", True)
+    monkeypatch.setattr(routes, "_snapshot_week", lambda season, week: snap)
+
+    def _live_must_not_run(*a, **k):
+        raise AssertionError("the live props pipeline must not run in PUBLIC_MODE")
+
+    monkeypatch.setattr(routes, "_get_player_props_live", _live_must_not_run)
+    routes._attach_prop_model_p(data, 2026, 3)
+
+    rung = data["lines"][0]["rungs"][0]
+    assert rung["model_p"] == 0.42
+    assert rung["generated_at"] == "2026-10-18T05:00:00+00:00"
+
+
+def test_abbreviated_nflverse_names_attach_model_p(monkeypatch):
+    """The rows production actually serves name players "P.Mahomes", not
+    "Patrick Mahomes". The matcher must resolve the abbreviated form to the
+    same (initial, last) key the Kalshi ladder carries, or model_p never
+    attaches -- which is what silently happened before."""
+    from nfl_predictor.api import routes
+
+    data = {"lines": [_one_ladder("t1", "receptions")]}
+    monkeypatch.setattr(routes, "PUBLIC_MODE", False)
+    monkeypatch.setattr(
+        "nfl_predictor.api.routes._get_player_props_live",
+        lambda *a, **k: [{
+            "player_name": "P.Mahomes", "recent_team": "KC",
+            "receptions_p_over": 0.42, "generated_at": "2026-10-18T05:00:00+00:00",
+        }],
+    )
+    routes._attach_prop_model_p(data, 2026, 3)
+
+    rung = data["lines"][0]["rungs"][0]
+    assert rung["model_p"] == 0.42
+    assert rung["generated_at"] == "2026-10-18T05:00:00+00:00"

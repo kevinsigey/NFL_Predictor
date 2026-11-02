@@ -764,6 +764,50 @@ def get_market_lines(season: int, week: int):
     return data
 
 
+def _prop_name_key(name: str) -> tuple[str, str] | None:
+    """(initial, last) for a prop row's player_name, in Kalshi-token form.
+
+    Prop rows carry either a full name ("Patrick Mahomes") or nflverse's
+    abbreviated form ("P.Mahomes") -- the served rows are the abbreviated
+    ones. Kalshi's token is first initial + last name, letters only: the
+    same rule the frontend's `marketLadderFor` matches ladders by. The
+    abbreviated form used to fall through with an empty last name, so no
+    rung ever matched and `model_p` silently never attached.
+    """
+    import re
+
+    n = (name or "").strip()
+    if not n:
+        return None
+    dot = n.find(".")
+    if dot > 0:
+        first, rest = n[:dot], n[dot + 1:]
+    else:
+        parts = n.split()
+        first, rest = parts[0], "".join(parts[1:])
+    initial = re.sub(r"[^A-Za-z]", "", first).upper()[:1]
+    last = re.sub(r"[^A-Za-z]", "", rest).upper()
+    return (initial, last) if initial and last else None
+
+
+def _props_for_model_p(season: int, week: int) -> list:
+    """The prop rows `model_p` is read from.
+
+    In PUBLIC_MODE these are the snapshot's stored rows -- the same rows
+    `/props` serves -- never the live pipeline. The public deployment's own
+    rule (see config.py) is that no request runs the live feature-building
+    pipeline, and running it here made every market-lines call pay a full
+    props computation (~17s) even when the ladders themselves were cached.
+    Outside PUBLIC_MODE there is no snapshot to read, so the live rows are
+    the source, as before.
+    """
+    if PUBLIC_MODE:
+        snap = _snapshot_week(season, week)
+        if snap is not None:
+            return snap.get("player_props") or []
+    return _get_player_props_live(season, week)
+
+
 def _attach_prop_model_p(data: dict, season: int, week: int) -> None:
     """Attach `model_p` and `generated_at` to receptions/passing_tds rungs only.
 
@@ -773,7 +817,7 @@ def _attach_prop_model_p(data: dict, season: int, week: int) -> None:
     from datetime import datetime, timezone
 
     try:
-        props = _get_player_props_live(season, week)
+        props = _props_for_model_p(season, week)
     except Exception:
         return
     if not props:
@@ -786,11 +830,10 @@ def _attach_prop_model_p(data: dict, season: int, week: int) -> None:
         team = p.get("recent_team")
         if not team or not name:
             continue
-        parts = name.split()
-        if not parts:
+        parsed = _prop_name_key(name)
+        if parsed is None:
             continue
-        initial = parts[0][0].upper() if parts[0] else ""
-        last = parts[-1].upper() if len(parts) > 1 else ""
+        initial, last = parsed
         key = (team, initial, last)
         # receptions: receptions_p_over; passing TDs: passing_td_over_prob
         # generated_at comes from the props row (when the pipeline computed it);

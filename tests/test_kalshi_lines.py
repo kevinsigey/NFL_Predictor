@@ -102,7 +102,7 @@ def test_build_ladders_groups_open_rungs_by_player_and_stat_sorted_by_line_and_s
 def test_current_ladders_caches_and_fails_soft(monkeypatch):
     calls = []
 
-    def boom(session, series, status, min_close_ts=None):
+    def boom(session, series, status, min_close_ts=None, max_close_ts=None):
         calls.append(series)
         raise RuntimeError("kalshi down")
 
@@ -115,6 +115,46 @@ def test_current_ladders_caches_and_fails_soft(monkeypatch):
     n = len(calls)
     assert kl.current_ladders(now=1000.0 + kl.LADDER_TTL_SECONDS + 1) is good          # expired + failure -> last good value
     assert len(calls) > n
+
+
+def test_the_serving_fetch_is_bounded_to_the_current_weeks_close_window(monkeypatch):
+    # The line checker's fetch must not page through every open market Kalshi
+    # lists: it asks only for markets closing inside the current week's
+    # window. (The collector's own scan stays unbounded -- it wants history.)
+    seen = []
+
+    def fake_fetch(session, series, status, min_close_ts=None, max_close_ts=None):
+        seen.append((series, status, max_close_ts))
+        return []
+
+    monkeypatch.setattr(kl, "fetch_series", fake_fetch)
+    out = kl._fetch_ladders(object(), now=1000.0)
+    assert out["lines"] == []
+    assert seen and all(status == "open" for _, status, _ in seen)
+    assert all(max_close == int(1000.0 + kl.LADDER_CLOSE_WINDOW_DAYS * 86400) for _, _, max_close in seen)
+
+
+def test_current_ladders_warms_from_the_disk_cache(monkeypatch, tmp_path):
+    # A cold process (no memory cache) holding a fresh on-disk payload serves
+    # it without touching Kalshi. This app scales to zero between requests,
+    # so the disk copy under CACHE_DIR is the cache most requests meet.
+    import json
+    from datetime import datetime, timezone
+
+    payload = {
+        "fetched_at": datetime.fromtimestamp(1000.0, timezone.utc).isoformat(timespec="seconds"),
+        "lines": [{"team": "PHI"}],
+    }
+    path = tmp_path / "kalshi_ladders.json"
+    path.write_text(json.dumps(payload))
+    monkeypatch.setattr(kl, "LADDER_CACHE_PATH", path)
+    monkeypatch.setattr(kl, "_ladder_cache", None)
+
+    def boom(*a, **k):
+        raise AssertionError("must not fetch: the disk cache is fresh")
+
+    monkeypatch.setattr(kl, "fetch_series", boom)
+    assert kl.current_ladders(now=1100.0) == payload
 
 
 def test_market_lines_route_returns_the_cached_ladders(monkeypatch):

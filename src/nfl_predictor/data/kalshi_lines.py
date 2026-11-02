@@ -86,13 +86,15 @@ def _get(session, path: str, params: dict) -> dict:
     raise RuntimeError(f"Kalshi rate-limited {path} after retries")
 
 
-def fetch_series(session, series: str, status: str, min_close_ts: int | None = None) -> list[dict]:
+def fetch_series(session, series: str, status: str, min_close_ts: int | None = None, max_close_ts: int | None = None) -> list[dict]:
     markets: list[dict] = []
     cursor = None
     while True:
         params = {"series_ticker": series, "status": status, "limit": PAGE_LIMIT}
         if min_close_ts is not None:
             params["min_close_ts"] = min_close_ts
+        if max_close_ts is not None:
+            params["max_close_ts"] = max_close_ts
         if cursor:
             params["cursor"] = cursor
         body = _get(session, "/markets", params)
@@ -207,23 +209,80 @@ def build_ladders(rows: list[dict]) -> list[dict]:
     return out
 
 
+#: Where the last good ladders payload is persisted between processes.
+#: CACHE_DIR is the one directory on a persistent volume (see config.py) and
+#: this app scales to zero between requests, so the in-process cache alone
+#: left most requests paying the upstream scan on a cold process. The file is
+#: the warm start every process reads before it fetches anything.
+from ..config import CACHE_DIR
+
+LADDER_CACHE_PATH = CACHE_DIR / "kalshi_ladders.json"
+#: The serving fetch only wants the current week's games. Open markets
+#: closing further out than this are a later week's openers, and paging
+#: through all of them on a request is what made the unbounded scan slow.
+LADDER_CLOSE_WINDOW_DAYS = 9
+
+
+def _fetch_ladders(session, now: float) -> dict:
+    """One bounded upstream scan: open markets in every series, but only
+    those closing inside the current week's window."""
+    ts = datetime.fromtimestamp(now, timezone.utc).isoformat(timespec="seconds")
+    max_close_ts = int(now + LADDER_CLOSE_WINDOW_DAYS * 86400)
+    rows = []
+    for series in SERIES:
+        rows += [normalize(m, series, ts) for m in fetch_series(session, series, "open", max_close_ts=max_close_ts)]
+    return {"fetched_at": ts, "lines": build_ladders(rows)}
+
+
+def _read_disk_cache(now: float) -> tuple[float, dict] | None:
+    try:
+        data = json.loads(LADDER_CACHE_PATH.read_text())
+        fetched = datetime.fromisoformat(data["fetched_at"]).timestamp()
+        # An entry stamped in the future is a clock-skewed or corrupt write,
+        # not a warm start: never serve it. (60s of slack for ordinary skew.)
+        if fetched > now + 60:
+            return None
+        if isinstance(data.get("lines"), list):
+            return fetched, data
+    except Exception:  # noqa: BLE001 - a corrupt or absent file is just a cold cache
+        pass
+    return None
+
+
+def _write_disk_cache(data: dict) -> None:
+    try:
+        LADDER_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        tmp = LADDER_CACHE_PATH.with_suffix(".tmp")
+        tmp.write_text(json.dumps(data))
+        tmp.replace(LADDER_CACHE_PATH)
+    except Exception:  # noqa: BLE001 - persistence is a warm start, never a failure mode
+        pass
+
+
 def current_ladders(session=None, now: float | None = None) -> dict:
     """Cached for LADDER_TTL_SECONDS so a busy page costs Kalshi one fetch per ten minutes. Any failure serves the last
-    good value (or an empty list): a missing market comparison must never break the line checker."""
+    good value (or an empty list): a missing market comparison must never break the line checker.
+
+    The cache is three layers, warmest first: this process's memory, the
+    on-disk copy under CACHE_DIR (shared across the app's scale-to-zero
+    processes), and only then a bounded upstream fetch, whose result is
+    written back through both layers."""
     import time as _time
     global _ladder_cache
     now = _time.time() if now is None else now
     with _ladder_lock:
         if _ladder_cache and now - _ladder_cache[0] < LADDER_TTL_SECONDS:
             return _ladder_cache[1]
+        if _ladder_cache is None:
+            disk = _read_disk_cache(now)
+            if disk is not None:
+                _ladder_cache = disk
+                if now - disk[0] < LADDER_TTL_SECONDS:
+                    return disk[1]
         try:
-            session = session or requests.Session()
-            ts = datetime.fromtimestamp(now, timezone.utc).isoformat(timespec="seconds")
-            rows = []
-            for series in SERIES:
-                rows += [normalize(m, series, ts) for m in fetch_series(session, series, "open")]
-            data = {"fetched_at": ts, "lines": build_ladders(rows)}
+            data = _fetch_ladders(session or requests.Session(), now)
         except Exception:  # noqa: BLE001 - enhancement; stale or empty beats an error page
             return _ladder_cache[1] if _ladder_cache else {"fetched_at": None, "lines": []}
         _ladder_cache = (now, data)
+        _write_disk_cache(data)
         return data
