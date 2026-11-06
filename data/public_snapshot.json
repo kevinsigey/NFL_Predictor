@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T16:51:09.000076+00:00",
+  "generated_at": "2026-11-06T23:16:55.025174+00:00",
   "season": 2026,
   "current_week": 9,
   "weeks": {
@@ -189989,9 +189989,9 @@
           "total_line": 44.5,
           "stadium": "Bank of America Stadium",
           "conditions": {
-            "kind": "cloudy",
-            "temp_f": 62,
-            "wind_mph": 5,
+            "kind": "clear",
+            "temp_f": 64,
+            "wind_mph": 6,
             "precip_pct": 0,
             "source": "open-meteo"
           }
@@ -190044,8 +190044,8 @@
           "stadium": "GEHA Field at Arrowhead Stadium",
           "conditions": {
             "kind": "clear",
-            "temp_f": 63,
-            "wind_mph": 8,
+            "temp_f": 60,
+            "wind_mph": 7,
             "precip_pct": 0,
             "source": "open-meteo"
           }
@@ -190066,8 +190066,8 @@
           "surface": "grass",
           "temp": null,
           "wind": null,
-          "spread_line": -7.0,
-          "total_line": 50.5,
+          "spread_line": -6.5,
+          "total_line": 49.5,
           "stadium": "Hard Rock Stadium",
           "conditions": {
             "kind": "dome",
@@ -190093,7 +190093,7 @@
           "surface": "sportturf",
           "temp": null,
           "wind": null,
-          "spread_line": 3.0,
+          "spread_line": 3.5,
           "total_line": 42.5,
           "stadium": "Caesars Superdome"
         },
@@ -190113,7 +190113,7 @@
           "surface": "grass",
           "temp": null,
           "wind": null,
-          "spread_line": -3.5,
+          "spread_line": -3.0,
           "total_line": 38.5,
           "stadium": "Lincoln Financial Field"
         },
@@ -190134,7 +190134,7 @@
           "temp": null,
           "wind": null,
           "spread_line": -4.5,
-          "total_line": 48.5,
+          "total_line": 47.5,
           "stadium": "Northwest Stadium"
         },
         {
@@ -190254,7 +190254,7 @@
           "temp": null,
           "wind": null,
           "spread_line": -3.0,
-          "total_line": 44.5,
+          "total_line": 43.5,
           "stadium": "U.S. Bank Stadium"
         }
       ],
@@ -190327,10 +190327,10 @@
         "2026_09_DET_MIA": {
           "home_win_prob": 0.3027994714053681,
           "away_win_prob": 0.6972005285946319,
-          "home_cover_prob": 0.5084992226500029,
-          "away_cover_prob": 0.4915007773499971,
-          "over_prob": 0.3031258789055338,
-          "under_prob": 0.6968741210944662,
+          "home_cover_prob": 0.49317876822359796,
+          "away_cover_prob": 0.506821231776402,
+          "over_prob": 0.3321222663492336,
+          "under_prob": 0.6678777336507664,
           "predicted_margin": -6.722615129197944,
           "predicted_total": 44.16564178466797,
           "sigma": 13.019094300495805,
@@ -190340,8 +190340,8 @@
         "2026_09_CLE_NO": {
           "home_win_prob": 0.5211521165204336,
           "away_win_prob": 0.4788478834795664,
-          "home_cover_prob": 0.42960283085923423,
-          "away_cover_prob": 0.5703971691407658,
+          "home_cover_prob": 0.41457550908384766,
+          "away_cover_prob": 0.5854244909161523,
           "over_prob": 0.5464106478084143,
           "under_prob": 0.4535893521915857,
           "predicted_margin": 0.6906025367195188,
@@ -190353,8 +190353,8 @@
         "2026_09_NYG_PHI": {
           "home_win_prob": 0.47699106077892517,
           "away_win_prob": 0.5230089392210748,
-          "home_cover_prob": 0.5836067080446435,
-          "away_cover_prob": 0.41639329195535646,
+          "home_cover_prob": 0.5685657740586438,
+          "away_cover_prob": 0.43143422594135616,
           "over_prob": 0.6056216334385645,
           "under_prob": 0.39437836656143554,
           "predicted_margin": -0.7512911789043761,
@@ -190368,8 +190368,8 @@
           "away_win_prob": 0.6068029349378867,
           "home_cover_prob": 0.5297534807844171,
           "away_cover_prob": 0.4702465192155829,
-          "over_prob": 0.47025222377801656,
-          "under_prob": 0.5297477762219834,
+          "over_prob": 0.5026867954621643,
+          "under_prob": 0.4973132045378357,
           "predicted_margin": -3.5281221169064,
           "predicted_total": 47.582767486572266,
           "sigma": 13.019094300495805,
@@ -190446,8 +190446,8 @@
           "away_win_prob": 0.5642957041128707,
           "home_cover_prob": 0.5273305631116605,
           "away_cover_prob": 0.4726694368883395,
-          "over_prob": 0.5005550216348941,
-          "under_prob": 0.49944497836510593,
+          "over_prob": 0.5329795813148556,
+          "under_prob": 0.46702041868514443,
           "predicted_margin": -2.1073947763389214,
           "predicted_total": 44.51709747314453,
           "sigma": 13.019094300495805,
@@ -221621,9 +221621,9 @@
           "total_line": 40.5,
           "stadium": "Lambeau Field",
           "conditions": {
-            "kind": "clear",
-            "temp_f": 56,
-            "wind_mph": 18,
+            "kind": "partly",
+            "temp_f": 43,
+            "wind_mph": 11,
             "precip_pct": 4,
             "source": "open-meteo"
           }
@@ -513646,9 +513646,9 @@
       "projected_wins": 9.7,
       "projected_losses": 7.3,
       "projected_point_diff": 67.0,
-      "current_division_rank": 3,
+      "current_division_rank": 2,
       "projected_division_rank": 2,
-      "division_rank_delta": 1
+      "division_rank_delta": 0
     },
     {
       "team": "LA",
@@ -513662,9 +513662,9 @@
       "projected_wins": 9.2,
       "projected_losses": 7.8,
       "projected_point_diff": 49.2,
-      "current_division_rank": 2,
+      "current_division_rank": 3,
       "projected_division_rank": 3,
-      "division_rank_delta": -1
+      "division_rank_delta": 0
     },
     {
       "team": "ARI",
