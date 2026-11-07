@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T13:08:30.727846+00:00",
+  "generated_at": "2026-11-07T19:34:09.508960+00:00",
   "season": 2026,
   "current_week": 9,
   "weeks": {
@@ -189965,7 +189965,7 @@
           "surface": "fieldturf",
           "temp": null,
           "wind": null,
-          "spread_line": -3.0,
+          "spread_line": -3.5,
           "total_line": 52.5,
           "stadium": "Bernabeu"
         },
@@ -189991,7 +189991,7 @@
           "conditions": {
             "kind": "clear",
             "temp_f": 65,
-            "wind_mph": 8,
+            "wind_mph": 7,
             "precip_pct": 0,
             "source": "open-meteo"
           }
@@ -190040,12 +190040,12 @@
           "temp": null,
           "wind": null,
           "spread_line": 9.5,
-          "total_line": 48.5,
+          "total_line": 47.5,
           "stadium": "GEHA Field at Arrowhead Stadium",
           "conditions": {
             "kind": "clear",
-            "temp_f": 58,
-            "wind_mph": 6,
+            "temp_f": 57,
+            "wind_mph": 4,
             "precip_pct": 0,
             "source": "open-meteo"
           }
@@ -190275,8 +190275,8 @@
         "2026_09_CIN_ATL": {
           "home_win_prob": 0.4277056095657302,
           "away_win_prob": 0.5722943904342698,
-          "home_cover_prob": 0.5192264482741662,
-          "away_cover_prob": 0.4807735517258338,
+          "home_cover_prob": 0.5345121664538633,
+          "away_cover_prob": 0.46548783354613665,
           "over_prob": 0.41255757703808016,
           "under_prob": 0.5874424229619198,
           "predicted_margin": -2.372320432158223,
@@ -190316,8 +190316,8 @@
           "away_win_prob": 0.21981257856178427,
           "home_cover_prob": 0.517200606144006,
           "away_cover_prob": 0.482799393855994,
-          "over_prob": 0.4592000089023348,
-          "under_prob": 0.5407999910976652,
+          "over_prob": 0.4915914601712773,
+          "under_prob": 0.5084085398287227,
           "predicted_margin": 10.06149912057783,
           "predicted_total": 47.2409553527832,
           "sigma": 13.019094300495805,
@@ -191248,7 +191248,7 @@
           "recent_team": "IND",
           "position": "WR",
           "is_starter": false,
-          "depth_slot": 874,
+          "depth_slot": 873,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -196299,7 +196299,7 @@
           "recent_team": "ARI",
           "position": "WR",
           "is_starter": false,
-          "depth_slot": 52,
+          "depth_slot": 51,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -211027,7 +211027,7 @@
           "recent_team": "ARI",
           "position": "TE",
           "is_starter": false,
-          "depth_slot": 50,
+          "depth_slot": 49,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -216427,7 +216427,7 @@
           "recent_team": "ARI",
           "position": "TE",
           "is_starter": false,
-          "depth_slot": 54,
+          "depth_slot": 55,
           "recent_avg": {
             "games": 1,
             "passing_yards": 0.0,
@@ -217685,7 +217685,7 @@
           "recent_team": "IND",
           "position": "TE",
           "is_starter": false,
-          "depth_slot": 873,
+          "depth_slot": 872,
           "recent_avg": {
             "games": 2,
             "passing_yards": 0.0,
@@ -219272,7 +219272,7 @@
           "recent_team": "IND",
           "position": "QB",
           "is_starter": false,
-          "depth_slot": 872,
+          "depth_slot": 871,
           "recent_avg": {
             "games": 1,
             "passing_yards": 8.0,
@@ -220621,9 +220621,9 @@
           "stadium": "Lambeau Field",
           "conditions": {
             "kind": "cloudy",
-            "temp_f": 50,
-            "wind_mph": 14,
-            "precip_pct": 1,
+            "temp_f": 46,
+            "wind_mph": 11,
+            "precip_pct": 0,
             "source": "open-meteo"
           }
         },
@@ -222024,7 +222024,7 @@
           "recent_team": "IND",
           "position": "WR",
           "is_starter": false,
-          "depth_slot": 874,
+          "depth_slot": 873,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -227359,7 +227359,7 @@
           "recent_team": "ARI",
           "position": "WR",
           "is_starter": false,
-          "depth_slot": 52,
+          "depth_slot": 51,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -241997,7 +241997,7 @@
           "recent_team": "ARI",
           "position": "RB",
           "is_starter": false,
-          "depth_slot": 51,
+          "depth_slot": 50,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -242622,7 +242622,7 @@
           "recent_team": "ARI",
           "position": "TE",
           "is_starter": false,
-          "depth_slot": 50,
+          "depth_slot": 49,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -247824,7 +247824,7 @@
           "recent_team": "ARI",
           "position": "TE",
           "is_starter": false,
-          "depth_slot": 54,
+          "depth_slot": 55,
           "recent_avg": {
             "games": 1,
             "passing_yards": 0.0,
@@ -249037,7 +249037,7 @@
           "recent_team": "IND",
           "position": "TE",
           "is_starter": false,
-          "depth_slot": 873,
+          "depth_slot": 872,
           "recent_avg": {
             "games": 2,
             "passing_yards": 0.0,
@@ -250480,7 +250480,7 @@
           "recent_team": "IND",
           "position": "QB",
           "is_starter": false,
-          "depth_slot": 872,
+          "depth_slot": 871,
           "recent_avg": {
             "games": 1,
             "passing_yards": 8.0,
@@ -251859,10 +251859,10 @@
           "total_line": null,
           "stadium": "Highmark Stadium",
           "conditions": {
-            "kind": "cloudy",
-            "temp_f": 56,
-            "wind_mph": 3,
-            "precip_pct": 3,
+            "kind": "partly",
+            "temp_f": 58,
+            "wind_mph": 4,
+            "precip_pct": 23,
             "source": "open-meteo"
           }
         },
@@ -251887,9 +251887,9 @@
           "stadium": "Bank of America Stadium",
           "conditions": {
             "kind": "cloudy",
-            "temp_f": 65,
-            "wind_mph": 4,
-            "precip_pct": 19,
+            "temp_f": 60,
+            "wind_mph": 2,
+            "precip_pct": 13,
             "source": "open-meteo"
           }
         },
@@ -251913,10 +251913,10 @@
           "total_line": null,
           "stadium": "Soldier Field",
           "conditions": {
-            "kind": "cloudy",
-            "temp_f": 59,
-            "wind_mph": 5,
-            "precip_pct": 16,
+            "kind": "rain",
+            "temp_f": 52,
+            "wind_mph": 10,
+            "precip_pct": 39,
             "source": "open-meteo"
           }
         },
@@ -253213,7 +253213,7 @@
           "recent_team": "IND",
           "position": "WR",
           "is_starter": false,
-          "depth_slot": 874,
+          "depth_slot": 873,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -258181,7 +258181,7 @@
           "recent_team": "ARI",
           "position": "WR",
           "is_starter": false,
-          "depth_slot": 52,
+          "depth_slot": 51,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -271652,7 +271652,7 @@
           "recent_team": "ARI",
           "position": "RB",
           "is_starter": false,
-          "depth_slot": 51,
+          "depth_slot": 50,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -272236,7 +272236,7 @@
           "recent_team": "ARI",
           "position": "TE",
           "is_starter": false,
-          "depth_slot": 50,
+          "depth_slot": 49,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -277216,7 +277216,7 @@
           "recent_team": "ARI",
           "position": "TE",
           "is_starter": false,
-          "depth_slot": 54,
+          "depth_slot": 55,
           "recent_avg": {
             "games": 1,
             "passing_yards": 0.0,
@@ -278359,7 +278359,7 @@
           "recent_team": "IND",
           "position": "TE",
           "is_starter": false,
-          "depth_slot": 873,
+          "depth_slot": 872,
           "recent_avg": {
             "games": 2,
             "passing_yards": 0.0,
@@ -279786,7 +279786,7 @@
           "recent_team": "IND",
           "position": "QB",
           "is_starter": false,
-          "depth_slot": 872,
+          "depth_slot": 871,
           "recent_avg": {
             "games": 1,
             "passing_yards": 8.0,
@@ -282737,7 +282737,7 @@
           "recent_team": "IND",
           "position": "WR",
           "is_starter": false,
-          "depth_slot": 874,
+          "depth_slot": 873,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -288845,7 +288845,7 @@
           "recent_team": "ARI",
           "position": "WR",
           "is_starter": false,
-          "depth_slot": 52,
+          "depth_slot": 51,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -305691,7 +305691,7 @@
           "recent_team": "ARI",
           "position": "RB",
           "is_starter": false,
-          "depth_slot": 51,
+          "depth_slot": 50,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -306390,7 +306390,7 @@
           "recent_team": "ARI",
           "position": "TE",
           "is_starter": false,
-          "depth_slot": 50,
+          "depth_slot": 49,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -312464,7 +312464,7 @@
           "recent_team": "ARI",
           "position": "TE",
           "is_starter": false,
-          "depth_slot": 54,
+          "depth_slot": 55,
           "recent_avg": {
             "games": 1,
             "passing_yards": 0.0,
@@ -313837,7 +313837,7 @@
           "recent_team": "IND",
           "position": "TE",
           "is_starter": false,
-          "depth_slot": 873,
+          "depth_slot": 872,
           "recent_avg": {
             "games": 2,
             "passing_yards": 0.0,
@@ -315539,7 +315539,7 @@
           "recent_team": "IND",
           "position": "QB",
           "is_starter": false,
-          "depth_slot": 872,
+          "depth_slot": 871,
           "recent_avg": {
             "games": 1,
             "passing_yards": 8.0,
@@ -323740,7 +323740,7 @@
           "recent_team": "ARI",
           "position": "WR",
           "is_starter": false,
-          "depth_slot": 52,
+          "depth_slot": 51,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -338661,7 +338661,7 @@
           "recent_team": "ARI",
           "position": "RB",
           "is_starter": false,
-          "depth_slot": 51,
+          "depth_slot": 50,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -339360,7 +339360,7 @@
           "recent_team": "ARI",
           "position": "TE",
           "is_starter": false,
-          "depth_slot": 50,
+          "depth_slot": 49,
           "recent_avg": {
             "games": 5,
             "passing_yards": 0.0,
@@ -344360,7 +344360,7 @@
           "recent_team": "ARI",
           "position": "TE",
           "is_starter": false,
-          "depth_slot": 54,
+          "depth_slot": 55,
           "recent_avg": {
             "games": 1,
             "passing_yards": 0.0,
@@ -512666,9 +512666,9 @@
       "projected_wins": 9.7,
       "projected_losses": 7.3,
       "projected_point_diff": 67.0,
-      "current_division_rank": 2,
+      "current_division_rank": 3,
       "projected_division_rank": 2,
-      "division_rank_delta": 0
+      "division_rank_delta": 1
     },
     {
       "team": "LA",
@@ -512682,9 +512682,9 @@
       "projected_wins": 9.2,
       "projected_losses": 7.8,
       "projected_point_diff": 49.2,
-      "current_division_rank": 3,
+      "current_division_rank": 2,
       "projected_division_rank": 3,
-      "division_rank_delta": 0
+      "division_rank_delta": -1
     },
     {
       "team": "ARI",
