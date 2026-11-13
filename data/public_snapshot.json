@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T11:09:35.509519+00:00",
+  "generated_at": "2026-11-13T19:52:58.045216+00:00",
   "season": 2026,
   "current_week": 10,
   "weeks": {
@@ -221583,8 +221583,8 @@
           "surface": "fieldturf",
           "temp": null,
           "wind": null,
-          "spread_line": 2.5,
-          "total_line": 50.5,
+          "spread_line": 3.0,
+          "total_line": 49.5,
           "stadium": "FC Bayern Munich Stadium"
         },
         {
@@ -221604,7 +221604,7 @@
           "temp": null,
           "wind": null,
           "spread_line": -3.0,
-          "total_line": 46.5,
+          "total_line": 47.5,
           "stadium": "Mercedes-Benz Stadium",
           "conditions": {
             "kind": "dome",
@@ -221652,14 +221652,7 @@
           "wind": null,
           "spread_line": 3.0,
           "total_line": 41.5,
-          "stadium": "Lambeau Field",
-          "conditions": {
-            "kind": "clear",
-            "temp_f": 44,
-            "wind_mph": 3,
-            "precip_pct": 0,
-            "source": "open-meteo"
-          }
+          "stadium": "Lambeau Field"
         },
         {
           "game_id": "2026_10_MIA_IND",
@@ -221866,10 +221859,10 @@
         "2026_10_NE_DET": {
           "home_win_prob": 0.6041423550231678,
           "away_win_prob": 0.3958576449768322,
-          "home_cover_prob": 0.5287222151288531,
-          "away_cover_prob": 0.4712777848711469,
-          "over_prob": 0.4829399538958886,
-          "under_prob": 0.5170600461041114,
+          "home_cover_prob": 0.5134231098331159,
+          "away_cover_prob": 0.4865768901668841,
+          "over_prob": 0.5153931423865163,
+          "under_prob": 0.48460685761348365,
           "predicted_margin": 3.4381328532180113,
           "predicted_total": 49.97430419921875,
           "sigma": 13.019094300495805,
@@ -221881,8 +221874,8 @@
           "away_win_prob": 0.6398213446465654,
           "home_cover_prob": 0.449252345074303,
           "away_cover_prob": 0.550747654925697,
-          "over_prob": 0.36955453757674284,
-          "under_prob": 0.6304454624232572,
+          "over_prob": 0.33928909496182935,
+          "under_prob": 0.6607109050381706,
           "predicted_margin": -4.660592253617216,
           "predicted_total": 42.40720748901367,
           "sigma": 13.019094300495805,
@@ -250986,14 +250979,7 @@
           "wind": null,
           "spread_line": 16.5,
           "total_line": 46.5,
-          "stadium": "Highmark Stadium",
-          "conditions": {
-            "kind": "cloudy",
-            "temp_f": 60,
-            "wind_mph": 12,
-            "precip_pct": 16,
-            "source": "open-meteo"
-          }
+          "stadium": "Highmark Stadium"
         },
         {
           "game_id": "2026_11_BAL_CAR",
@@ -251013,14 +250999,7 @@
           "wind": null,
           "spread_line": 1.5,
           "total_line": 44.5,
-          "stadium": "Bank of America Stadium",
-          "conditions": {
-            "kind": "partly",
-            "temp_f": 65,
-            "wind_mph": 3,
-            "precip_pct": 10,
-            "source": "open-meteo"
-          }
+          "stadium": "Bank of America Stadium"
         },
         {
           "game_id": "2026_11_NO_CHI",
@@ -281585,9 +281564,9 @@
           "total_line": null,
           "stadium": "Highmark Stadium",
           "conditions": {
-            "kind": "clear",
-            "temp_f": 24,
-            "wind_mph": 5,
+            "kind": "cloudy",
+            "temp_f": 35,
+            "wind_mph": 18,
             "precip_pct": 26,
             "source": "open-meteo"
           }
@@ -281613,9 +281592,9 @@
           "stadium": "Acrisure Stadium",
           "conditions": {
             "kind": "clear",
-            "temp_f": 36,
-            "wind_mph": 2,
-            "precip_pct": 13,
+            "temp_f": 43,
+            "wind_mph": 4,
+            "precip_pct": 22,
             "source": "open-meteo"
           }
         },
