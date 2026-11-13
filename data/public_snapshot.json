@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T20:02:36.331945+00:00",
+  "generated_at": "2026-11-13T01:55:32.617013+00:00",
   "season": 2026,
   "current_week": 10,
   "weeks": {
@@ -221563,7 +221563,7 @@
           "surface": "fieldturf",
           "temp": null,
           "wind": null,
-          "spread_line": 2.5,
+          "spread_line": 1.5,
           "total_line": 40.5,
           "stadium": "MetLife Stadium",
           "conditions": {
@@ -221591,7 +221591,7 @@
           "temp": null,
           "wind": null,
           "spread_line": 2.5,
-          "total_line": 51.5,
+          "total_line": 49.5,
           "stadium": "FC Bayern Munich Stadium"
         },
         {
@@ -221662,7 +221662,7 @@
           "stadium": "Lambeau Field",
           "conditions": {
             "kind": "clear",
-            "temp_f": 44,
+            "temp_f": 42,
             "wind_mph": 3,
             "precip_pct": 0,
             "source": "open-meteo"
@@ -221860,8 +221860,8 @@
         "2026_10_WAS_NYG": {
           "home_win_prob": 0.6387787800518238,
           "away_win_prob": 0.36122121994817624,
-          "home_cover_prob": 0.56480801490741,
-          "away_cover_prob": 0.43519198509259005,
+          "home_cover_prob": 0.5948275228365623,
+          "away_cover_prob": 0.40517247716343774,
           "over_prob": 0.7327115491109704,
           "under_prob": 0.26728845088902964,
           "predicted_margin": 4.624335802401164,
@@ -221875,8 +221875,8 @@
           "away_win_prob": 0.3958576449768322,
           "home_cover_prob": 0.5287222151288531,
           "away_cover_prob": 0.4712777848711469,
-          "over_prob": 0.4505994678029186,
-          "under_prob": 0.5494005321970814,
+          "over_prob": 0.5153931423865163,
+          "under_prob": 0.48460685761348365,
           "predicted_margin": 3.4381328532180113,
           "predicted_total": 49.97430419921875,
           "sigma": 13.019094300495805,
@@ -253669,10 +253669,10 @@
           "total_line": 46.5,
           "stadium": "Highmark Stadium",
           "conditions": {
-            "kind": "cloudy",
-            "temp_f": 57,
-            "wind_mph": 17,
-            "precip_pct": 18,
+            "kind": "rain",
+            "temp_f": 52,
+            "wind_mph": 13,
+            "precip_pct": 19,
             "source": "open-meteo"
           }
         },
@@ -253694,7 +253694,14 @@
           "wind": null,
           "spread_line": 1.5,
           "total_line": 44.5,
-          "stadium": "Bank of America Stadium"
+          "stadium": "Bank of America Stadium",
+          "conditions": {
+            "kind": "cloudy",
+            "temp_f": 66,
+            "wind_mph": 2,
+            "precip_pct": 7,
+            "source": "open-meteo"
+          }
         },
         {
           "game_id": "2026_11_NO_CHI",
@@ -253717,9 +253724,9 @@
           "stadium": "Soldier Field",
           "conditions": {
             "kind": "cloudy",
-            "temp_f": 60,
+            "temp_f": 62,
             "wind_mph": 9,
-            "precip_pct": 28,
+            "precip_pct": 36,
             "source": "open-meteo"
           }
         },
@@ -253813,8 +253820,8 @@
           "surface": "fieldturf",
           "temp": null,
           "wind": null,
-          "spread_line": -6.0,
-          "total_line": 44.5,
+          "spread_line": null,
+          "total_line": null,
           "stadium": "MetLife Stadium"
         },
         {
@@ -253894,7 +253901,7 @@
           "temp": null,
           "wind": null,
           "spread_line": 3.5,
-          "total_line": 46.5,
+          "total_line": 45.5,
           "stadium": "Estadio Banorte"
         },
         {
@@ -253913,8 +253920,8 @@
           "surface": "grass",
           "temp": null,
           "wind": null,
-          "spread_line": -3.5,
-          "total_line": 51.5,
+          "spread_line": null,
+          "total_line": null,
           "stadium": "Northwest Stadium"
         }
       ],
@@ -254013,10 +254020,8 @@
         "2026_11_JAX_NYG": {
           "home_win_prob": 0.3956202330518299,
           "away_win_prob": 0.6043797669481701,
-          "home_cover_prob": 0.5777580830526038,
-          "away_cover_prob": 0.4222419169473962,
-          "over_prob": 0.4930239468222021,
-          "under_prob": 0.5069760531777979,
+          "home_cover_prob": null,
+          "away_cover_prob": null,
           "predicted_margin": -3.4461561436894685,
           "predicted_total": 44.285091400146484,
           "sigma": 13.019094300495805,
@@ -254067,8 +254072,8 @@
           "away_win_prob": 0.3749580367289017,
           "home_cover_prob": 0.5199045893252681,
           "away_cover_prob": 0.48009541067473194,
-          "over_prob": 0.4334947111861731,
-          "under_prob": 0.5665052888138269,
+          "over_prob": 0.4656882700577377,
+          "under_prob": 0.5343117299422623,
           "predicted_margin": 4.14983669806139,
           "predicted_total": 44.44171905517578,
           "sigma": 13.019094300495805,
@@ -254078,10 +254083,8 @@
         "2026_11_CIN_WAS": {
           "home_win_prob": 0.3566006953724763,
           "away_win_prob": 0.6433993046275237,
-          "home_cover_prob": 0.4606786928736726,
-          "away_cover_prob": 0.5393213071263274,
-          "over_prob": 0.27201654731042746,
-          "under_prob": 0.7279834526895725,
+          "home_cover_prob": null,
+          "away_cover_prob": null,
           "predicted_margin": -4.785297507752376,
           "predicted_total": 44.04368591308594,
           "sigma": 13.019094300495805,
@@ -284219,14 +284222,7 @@
           "wind": null,
           "spread_line": null,
           "total_line": null,
-          "stadium": "Highmark Stadium",
-          "conditions": {
-            "kind": "rain",
-            "temp_f": 46,
-            "wind_mph": 5,
-            "precip_pct": 32,
-            "source": "open-meteo"
-          }
+          "stadium": "Highmark Stadium"
         },
         {
           "game_id": "2026_12_DEN_PIT",
@@ -284246,14 +284242,7 @@
           "wind": null,
           "spread_line": null,
           "total_line": null,
-          "stadium": "Acrisure Stadium",
-          "conditions": {
-            "kind": "clear",
-            "temp_f": 43,
-            "wind_mph": 9,
-            "precip_pct": 14,
-            "source": "open-meteo"
-          }
+          "stadium": "Acrisure Stadium"
         },
         {
           "game_id": "2026_12_NO_CIN",
@@ -521566,8 +521555,8 @@
       "losses": 4,
       "ties": 0,
       "point_diff": 40.0,
-      "projected_wins": 9.9,
-      "projected_losses": 7.1,
+      "projected_wins": 10.0,
+      "projected_losses": 7.0,
       "projected_point_diff": 72.7,
       "current_division_rank": 2,
       "projected_division_rank": 2,
