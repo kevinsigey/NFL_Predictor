@@ -54,11 +54,20 @@ export function GamesPage() {
           return (
             <li key={game.game_id}>
               <strong>{game.away_team} @ {game.home_team}</strong> — {new Date(game.gameday).toLocaleDateString()}
-              {prediction && (
-                <span>
-                  {" "}— Home win {Math.round(prediction.home_win_prob * 100)}%
-                  {prediction.over_prob != null && ` · Over ${Math.round(prediction.over_prob * 100)}%`}
+              {/* The market's line leads (spread_line is the home expected margin; a favourite lays points). The model's
+                  number sits beside it, smaller. No line, no market figure: it is never defaulted. */}
+              {game.spread_line != null && (
+                <span style={{ fontSize: "1.15em", fontWeight: 600 }} data-testid="market-line">
+                  {" "}— Market: {game.spread_line >= 0 ? game.home_team : game.away_team} {game.spread_line === 0 ? "pick'em" : `-${Math.abs(game.spread_line)}`}
+                  {game.total_line != null && ` · total ${game.total_line}`}
                 </span>
+              )}
+              {prediction && (
+                <small>
+                  {" "}— Model: home win {Math.round(prediction.home_win_prob * 100)}%
+                  {prediction.over_prob != null && ` · over ${Math.round(prediction.over_prob * 100)}%`}
+                  {game.spread_line == null && " · no market line"}
+                </small>
               )}
             </li>
           );
