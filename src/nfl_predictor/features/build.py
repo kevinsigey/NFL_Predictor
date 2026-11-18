@@ -15,7 +15,8 @@ from . import conditions, epa, power_ratings, qb, rest_days, rolling_form
 
 #: Feature BLOCKS beyond the ten base columns. A block joins DEFAULT_BLOCKS only in the PR that shows it clears the
 #: evaluation bar (paired-bootstrap intervals + calibration gap, on identical held-out games).
-BLOCK_COLUMNS: dict[str, list[str]] = {"epa": epa.epa_columns(), "qb": list(qb.QB_COLUMNS), "conditions": conditions.CONDITION_COLUMNS}
+BLOCK_COLUMNS: dict[str, list[str]] = {"epa": epa.epa_columns(), "qb": list(qb.QB_COLUMNS),
+                                    "qb_pregame": list(qb.QB_COLUMNS), "conditions": conditions.CONDITION_COLUMNS}
 DEFAULT_BLOCKS: tuple[str, ...] = ()
 
 
@@ -71,6 +72,10 @@ def _assemble(games_df: pd.DataFrame, blocks: tuple[str, ...] = (), aux: Aux | N
         if aux is None or aux.qb_games is None:
             raise ValueError("the qb block needs aux.qb_games; refusing to default it to a neutral QB")
         df = qb.add_qb_features(df, aux.qb_games, upcoming_starters=aux.upcoming_starters)
+    if "qb_pregame" in blocks:
+        if aux is None or aux.qb_games is None:
+            raise ValueError("the qb_pregame block needs aux.qb_games; refusing to default it to a neutral QB")
+        df = qb.add_pregame_qb_features(df, aux.qb_games, aux.upcoming_starters)
     if "conditions" in blocks:
         df = conditions.add_condition_features(df)
     return df
