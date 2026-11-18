@@ -166,3 +166,13 @@ def test_market_lines_route_returns_the_cached_ladders(monkeypatch):
     # habitatring.com). This test is about the cached ladders, so that pipeline is stubbed, not the socket.
     monkeypatch.setattr(routes, "_get_player_props_live", lambda *a, **k: [])
     assert routes.get_market_lines(2026, 6) == payload
+
+
+def test_normalize_records_the_size_resting_at_each_sides_ask():
+    # Kalshi's public market list carries yes_ask_size_fp and yes_bid_size_fp;
+    # NO's ask is the YES bid from the other side, so it rests on the YES bid size.
+    market = {"title": "A B: 5+ receptions", "floor_strike": 4.5,
+              "yes_ask_size_fp": "774.30", "yes_bid_size_fp": "1.00"}
+    row = kl.normalize(market, "KXTEST", "2026-11-18T00:00:00+00:00")
+    assert (row["yes_ask_size"], row["no_ask_size"]) == (774.3, 1.0)
+    assert kl.normalize({"title": "A B: 5+ receptions"}, "KXTEST", "t")["yes_ask_size"] is None
