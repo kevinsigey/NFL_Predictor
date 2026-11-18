@@ -286,3 +286,79 @@ def current_ladders(session=None, now: float | None = None) -> dict:
         _ladder_cache = (now, data)
         _write_disk_cache(data)
         return data
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# The game-winner market as a win probability for one game, from the committed snapshots (never the live API).
+# ---------------------------------------------------------------------------------------------------------------------
+from functools import lru_cache
+from zoneinfo import ZoneInfo
+
+
+def _split_matchup(glued: str) -> tuple[str, str] | None:
+    """'CINWAS' -> ('CIN', 'WAS'), in nflverse codes. Matches the two-team split only; anything else is no match."""
+    for i in (2, 3, 4):
+        a, b = glued[:i], glued[i:]
+        if a in _TEAM_CODES and b in _TEAM_CODES:
+            return TEAM_ALIAS.get(a, a), TEAM_ALIAS.get(b, b)
+    return None
+
+
+#: Same cut-off as NBA_Predictor's moneyline: a quote wider than this is not a price.
+MAX_SPREAD = 0.08
+
+
+def _mid(row: dict) -> float | None:
+    bid, ask = row.get("yes_bid"), row.get("yes_ask")
+    if not bid or not ask or ask < bid or ask - bid > MAX_SPREAD:
+        return None
+    return (bid + ask) / 2
+
+
+@lru_cache(maxsize=4)
+def _moneyline_snapshots(lines_dir: str, newest_mtime: float) -> dict:
+    """{(ET date 'YYMMDD', frozenset({team, team})): [(snapshot_ts, {team: yes-price probability})]}, oldest first."""
+    out: dict = {}
+    for path in sorted(Path(lines_dir).glob("kalshi_nfl_lines_*.jsonl.gz")):
+        with gzip.open(path, "rt", encoding="utf-8") as fh:
+            for line in fh:
+                if "KXNFLGAME" not in line:
+                    continue
+                r = json.loads(line)
+                if r.get("series") != "KXNFLGAME":
+                    continue
+                parts = (r.get("ticker") or "").split("-")
+                if len(parts) != 3 or len(parts[1]) < 8:
+                    continue
+                teams = _split_matchup(parts[1][7:])
+                side = TEAM_ALIAS.get(parts[2], parts[2])
+                p = _mid(r)
+                if teams is None or side not in teams or p is None:
+                    continue
+                snaps = out.setdefault((parts[1][:7], frozenset(teams)), {})
+                snaps.setdefault(r["snapshot_ts"], {})[side] = p
+    return {k: sorted(v.items()) for k, v in out.items()}
+
+
+def game_win_probability(home: str, away: str, kickoff_utc: str, lines_dir: Path = LINES_DIR) -> float | None:
+    """The market's home win probability from the latest snapshot taken BEFORE kickoff, or None (never defaulted).
+
+    Matched by the event ticker's ET game date plus both teams. Both sides priced: each side's yes mid (spread <= MAX_SPREAD, no
+    last-trade fallback), normalised to sum to 1. One side priced: that side's price, the other as its complement.
+    """
+    kick = datetime.fromisoformat(kickoff_utc.replace("Z", "+00:00"))
+    if kick.tzinfo is None:
+        kick = kick.replace(tzinfo=timezone.utc)
+    key = (kick.astimezone(ZoneInfo("America/New_York")).strftime("%y%b%d").upper(), frozenset({home, away}))
+    files = list(Path(lines_dir).glob("kalshi_nfl_lines_*.jsonl.gz"))
+    snaps = _moneyline_snapshots(str(lines_dir), max((f.stat().st_mtime for f in files), default=0.0)).get(key, [])
+    for ts, prices in reversed(snaps):
+        if datetime.fromisoformat(ts) < kick:
+            h, a = prices.get(home), prices.get(away)
+            if h is not None and a is not None and h + a > 0:
+                return round(h / (h + a), 4)
+            if h is not None:
+                return h
+            if a is not None:
+                return round(1 - a, 4)
+    return None

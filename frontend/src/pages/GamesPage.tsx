@@ -54,19 +54,27 @@ export function GamesPage() {
           return (
             <li key={game.game_id}>
               <strong>{game.away_team} @ {game.home_team}</strong> — {new Date(game.gameday).toLocaleDateString()}
-              {/* The market's line leads (spread_line is the home expected margin; a favourite lays points). The model's
-                  number sits beside it, smaller. No line, no market figure: it is never defaulted. */}
-              {game.spread_line != null && (
-                <span style={{ fontSize: "1.15em", fontWeight: 600 }} data-testid="market-line">
-                  {" "}— Market: {game.spread_line >= 0 ? game.home_team : game.away_team} {game.spread_line === 0 ? "pick'em" : `-${Math.abs(game.spread_line)}`}
-                  {game.total_line != null && ` · total ${game.total_line}`}
+              {/* The market leads: Kalshi's game-winner price. The model's number sits beside it, smaller. The spread/total
+                  stay as secondary text. No price, no market figure: it is never defaulted. */}
+              {game.market_home_win_probability != null && (
+                <span style={{ fontSize: "1.15em", fontWeight: 600 }} data-testid="market-headline">
+                  {" "}— Market: {game.market_home_win_probability >= 0.5 ? game.home_team : game.away_team}{" · "}
+                  {Math.round(Math.max(game.market_home_win_probability, 1 - game.market_home_win_probability) * 100)}%
                 </span>
+              )}
+              {game.spread_line != null && (
+                <small data-testid="market-line">
+                  {" "}({game.spread_line >= 0 ? game.home_team : game.away_team} {game.spread_line === 0 ? "pick'em" : `-${Math.abs(game.spread_line)}`}
+                  {game.total_line != null && ` · total ${game.total_line}`})
+                </small>
               )}
               {prediction && (
                 <small>
-                  {" "}— Model: home win {Math.round(prediction.home_win_prob * 100)}%
+                  {" "}— Model: {game.market_home_win_probability == null || game.market_home_win_probability >= 0.5
+                    ? `${game.home_team} ${Math.round(prediction.home_win_prob * 100)}%`
+                    : `${game.away_team} ${Math.round(prediction.away_win_prob * 100)}%`}
                   {prediction.over_prob != null && ` · over ${Math.round(prediction.over_prob * 100)}%`}
-                  {game.spread_line == null && " · no market line"}
+                  {game.market_home_win_probability == null && " · no market price"}
                 </small>
               )}
             </li>
