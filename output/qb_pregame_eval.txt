@@ -1,0 +1,9 @@
+Loading NFL data for seasons [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]...
+team-game slots: 14034; chart/injury starter named: 13509; agrees with actual starter: 0.873 (n=13509)
+
+held-out games: 6499  (positive delta = qb_pregame better; CI = paired bootstrap 95%)
+margin  MAE base 10.5961  qb 10.6134  delta -0.0173 [-0.0448, +0.0099]  | closing line 10.2492  gap closed -5.0%
+total   MAE base 11.0179  qb 11.0252  delta -0.0073 [-0.0914, +0.0759]  | closing line 10.5613  gap closed -1.6%
+brier   base 0.22132  qb 0.22128  delta +0.00004 [-0.00062, +0.00072]
+
+GATE: FAIL
