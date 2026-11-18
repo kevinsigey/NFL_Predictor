@@ -17,12 +17,14 @@ from fastapi import APIRouter, HTTPException, Response
 
 from ..config import (
     CURRENT_SEASON,
+    DATA_DIR,
     DEPTH_CHARTS_CACHE_DIR,
     MODELS_DIR,
     PUBLIC_MODE,
     PUBLIC_SNAPSHOT_PATH,
     PUBLIC_SNAPSHOT_REFRESH_URL,
 )
+from ..data import kalshi_lines
 from ..data import depth_charts, injuries, player_stats, schedules, teams as teams_data
 from ..data import team_efficiency as team_efficiency_mod
 from ..data import player_season as player_season_mod
@@ -356,6 +358,8 @@ def _get_games_live(season: int, week: int):
     # values, e.g. gameday's pd.Timestamp, pass through unchanged).
     games = games.astype(object).where(pd.notna(games), None)
     records = games.to_dict("records")
+    for g in records:
+        g["market_home_win_probability"] = kalshi_lines.game_win_probability(g["home_team"], g["away_team"], _kickoff_utc(g), DATA_DIR / "lines")
     # Attach kickoff-hour conditions to upcoming games only (no scores yet), in
     # kickoff order and under a per-request fetch budget: the nearest games get
     # their chip first, and a cold process makes at most a handful of Open-Meteo

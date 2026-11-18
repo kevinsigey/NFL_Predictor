@@ -9,6 +9,8 @@ export interface GameSummary {
   away_score: number | null;
   spread_line: number | null;
   total_line: number | null;
+  // Kalshi game-winner price (home win prob), pre-kickoff only; null when none was recorded.
+  market_home_win_probability?: number | null;
 }
 
 export interface GamePrediction {
