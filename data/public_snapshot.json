@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T20:30:18.676685+00:00",
+  "generated_at": "2026-11-21T02:23:38.059009+00:00",
   "season": 2026,
   "current_week": 11,
   "weeks": {
@@ -252002,8 +252002,8 @@
           "market_home_win_probability": 0.915,
           "conditions": {
             "kind": "cloudy",
-            "temp_f": 64,
-            "wind_mph": 12,
+            "temp_f": 66,
+            "wind_mph": 14,
             "precip_pct": 1,
             "source": "open-meteo"
           }
@@ -252027,12 +252027,12 @@
           "spread_line": 3.0,
           "total_line": 43.5,
           "stadium": "Bank of America Stadium",
-          "market_home_win_probability": 0.5792,
+          "market_home_win_probability": 0.585,
           "conditions": {
             "kind": "cloudy",
-            "temp_f": 58,
-            "wind_mph": 7,
-            "precip_pct": 61,
+            "temp_f": 61,
+            "wind_mph": 9,
+            "precip_pct": 45,
             "source": "open-meteo"
           }
         },
@@ -252059,8 +252059,8 @@
           "conditions": {
             "kind": "rain",
             "temp_f": 55,
-            "wind_mph": 11,
-            "precip_pct": 45,
+            "wind_mph": 10,
+            "precip_pct": 31,
             "source": "open-meteo"
           }
         },
@@ -252142,9 +252142,9 @@
           "market_home_win_probability": 0.915,
           "conditions": {
             "kind": "clear",
-            "temp_f": 50,
-            "wind_mph": 15,
-            "precip_pct": 32,
+            "temp_f": 44,
+            "wind_mph": 16,
+            "precip_pct": 36,
             "source": "open-meteo"
           }
         },
@@ -252209,7 +252209,7 @@
           "spread_line": 10.5,
           "total_line": 40.5,
           "stadium": "Empower Field at Mile High",
-          "market_home_win_probability": 0.835
+          "market_home_win_probability": 0.825
         },
         {
           "game_id": "2026_11_PIT_PHI",
@@ -252230,7 +252230,7 @@
           "spread_line": -3.5,
           "total_line": 37.5,
           "stadium": "Lincoln Financial Field",
-          "market_home_win_probability": 0.3317
+          "market_home_win_probability": 0.335
         },
         {
           "game_id": "2026_11_MIN_SF",
@@ -252251,7 +252251,7 @@
           "spread_line": 3.0,
           "total_line": 46.5,
           "stadium": "Estadio Banorte",
-          "market_home_win_probability": 0.605
+          "market_home_win_probability": 0.607
         },
         {
           "game_id": "2026_11_CIN_WAS",
@@ -280905,7 +280905,7 @@
           "spread_line": 3.5,
           "total_line": 45.5,
           "stadium": "SoFi Stadium",
-          "market_home_win_probability": 0.6169,
+          "market_home_win_probability": 0.6089,
           "conditions": {
             "kind": "dome",
             "temp_f": null,
@@ -280933,7 +280933,7 @@
           "spread_line": -2.5,
           "total_line": 55.5,
           "stadium": "Ford Field",
-          "market_home_win_probability": 0.4221,
+          "market_home_win_probability": 0.425,
           "conditions": {
             "kind": "dome",
             "temp_f": null,
@@ -280989,7 +280989,14 @@
           "spread_line": 3.0,
           "total_line": 50.5,
           "stadium": "Highmark Stadium",
-          "market_home_win_probability": 0.5813
+          "market_home_win_probability": 0.595,
+          "conditions": {
+            "kind": "snow",
+            "temp_f": 34,
+            "wind_mph": 9,
+            "precip_pct": 29,
+            "source": "open-meteo"
+          }
         },
         {
           "game_id": "2026_12_DEN_PIT",
@@ -281010,12 +281017,12 @@
           "spread_line": -1.5,
           "total_line": 40.5,
           "stadium": "Acrisure Stadium",
-          "market_home_win_probability": 0.4428,
+          "market_home_win_probability": 0.4577,
           "conditions": {
             "kind": "cloudy",
-            "temp_f": 51,
-            "wind_mph": 4,
-            "precip_pct": 14,
+            "temp_f": 41,
+            "wind_mph": 7,
+            "precip_pct": 10,
             "source": "open-meteo"
           }
         },
@@ -281038,7 +281045,14 @@
           "spread_line": 10.0,
           "total_line": 52.5,
           "stadium": "Paycor Stadium",
-          "market_home_win_probability": 0.8308
+          "market_home_win_probability": 0.8308,
+          "conditions": {
+            "kind": "cloudy",
+            "temp_f": 49,
+            "wind_mph": 5,
+            "precip_pct": 6,
+            "source": "open-meteo"
+          }
         },
         {
           "game_id": "2026_12_BAL_HOU",
@@ -281059,7 +281073,7 @@
           "spread_line": 6.5,
           "total_line": 44.5,
           "stadium": "Reliant Stadium",
-          "market_home_win_probability": 0.7094
+          "market_home_win_probability": 0.7387
         },
         {
           "game_id": "2026_12_NYG_IND",
@@ -281080,7 +281094,7 @@
           "spread_line": -6.5,
           "total_line": 43.5,
           "stadium": "Lucas Oil Stadium",
-          "market_home_win_probability": 0.3266
+          "market_home_win_probability": 0.2687
         },
         {
           "game_id": "2026_12_TEN_JAX",
@@ -281101,7 +281115,7 @@
           "spread_line": 14.5,
           "total_line": 47.5,
           "stadium": "EverBank Stadium",
-          "market_home_win_probability": 0.8905
+          "market_home_win_probability": 0.895
         },
         {
           "game_id": "2026_12_NYJ_MIA",
@@ -281122,7 +281136,7 @@
           "spread_line": -3.0,
           "total_line": 41.5,
           "stadium": "Hard Rock Stadium",
-          "market_home_win_probability": 0.3869
+          "market_home_win_probability": 0.392
         },
         {
           "game_id": "2026_12_ATL_MIN",
@@ -281143,7 +281157,7 @@
           "spread_line": 7.0,
           "total_line": 42.5,
           "stadium": "U.S. Bank Stadium",
-          "market_home_win_probability": 0.7487
+          "market_home_win_probability": 0.745
         },
         {
           "game_id": "2026_12_NE_LAC",
@@ -281164,7 +281178,7 @@
           "spread_line": 4.5,
           "total_line": 39.5,
           "stadium": "SoFi Stadium",
-          "market_home_win_probability": 0.665
+          "market_home_win_probability": 0.65
         },
         {
           "game_id": "2026_12_WAS_ARI",
@@ -281185,7 +281199,7 @@
           "spread_line": -6.5,
           "total_line": 41.5,
           "stadium": "State Farm Stadium",
-          "market_home_win_probability": 0.265
+          "market_home_win_probability": 0.2613
         },
         {
           "game_id": "2026_12_SEA_SF",
@@ -281206,7 +281220,7 @@
           "spread_line": 2.5,
           "total_line": 46.5,
           "stadium": "Levi's Stadium",
-          "market_home_win_probability": 0.5792
+          "market_home_win_probability": 0.5764
         },
         {
           "game_id": "2026_12_LV_CLE",
@@ -281227,7 +281241,7 @@
           "spread_line": 4.5,
           "total_line": 40.5,
           "stadium": "Huntington Bank Field",
-          "market_home_win_probability": 0.65
+          "market_home_win_probability": 0.6617
         },
         {
           "game_id": "2026_12_CAR_TB",
@@ -281248,7 +281262,7 @@
           "spread_line": 2.5,
           "total_line": 43.5,
           "stadium": "Raymond James Stadium",
-          "market_home_win_probability": 0.5528
+          "market_home_win_probability": 0.5685
         }
       ],
       "predictions": {
@@ -526090,7 +526104,7 @@
       "point_diff": 85.0,
       "projected_wins": 12.9,
       "projected_losses": 4.1,
-      "projected_point_diff": 153.0,
+      "projected_point_diff": 154.6,
       "current_division_rank": 1,
       "projected_division_rank": 1,
       "division_rank_delta": 0
@@ -526106,7 +526120,7 @@
       "point_diff": 16.0,
       "projected_wins": 10.7,
       "projected_losses": 6.3,
-      "projected_point_diff": 40.0,
+      "projected_point_diff": 39.8,
       "current_division_rank": 2,
       "projected_division_rank": 2,
       "division_rank_delta": 0
@@ -526122,7 +526136,7 @@
       "point_diff": -32.0,
       "projected_wins": 9.3,
       "projected_losses": 7.7,
-      "projected_point_diff": -41.5,
+      "projected_point_diff": -40.5,
       "current_division_rank": 3,
       "projected_division_rank": 3,
       "division_rank_delta": 0
@@ -526152,9 +526166,9 @@
       "losses": 2,
       "ties": 0,
       "point_diff": 125.0,
-      "projected_wins": 12.5,
-      "projected_losses": 4.5,
-      "projected_point_diff": 181.3,
+      "projected_wins": 12.6,
+      "projected_losses": 4.4,
+      "projected_point_diff": 182.8,
       "current_division_rank": 1,
       "projected_division_rank": 1,
       "division_rank_delta": 0
@@ -526170,7 +526184,7 @@
       "point_diff": 37.0,
       "projected_wins": 8.2,
       "projected_losses": 8.8,
-      "projected_point_diff": 61.8,
+      "projected_point_diff": 62.4,
       "current_division_rank": 2,
       "projected_division_rank": 2,
       "division_rank_delta": 0
@@ -526184,9 +526198,9 @@
       "losses": 8,
       "ties": 0,
       "point_diff": -86.0,
-      "projected_wins": 5.3,
-      "projected_losses": 11.7,
-      "projected_point_diff": -110.2,
+      "projected_wins": 5.1,
+      "projected_losses": 11.9,
+      "projected_point_diff": -118.0,
       "current_division_rank": 3,
       "projected_division_rank": 3,
       "division_rank_delta": 0
@@ -526202,7 +526216,7 @@
       "point_diff": -72.0,
       "projected_wins": 3.1,
       "projected_losses": 13.9,
-      "projected_point_diff": -146.0,
+      "projected_point_diff": -144.9,
       "current_division_rank": 4,
       "projected_division_rank": 4,
       "division_rank_delta": 0
@@ -526282,7 +526296,7 @@
       "point_diff": 7.0,
       "projected_wins": 8.4,
       "projected_losses": 8.6,
-      "projected_point_diff": -14.3,
+      "projected_point_diff": -12.7,
       "current_division_rank": 1,
       "projected_division_rank": 1,
       "division_rank_delta": 0
@@ -526314,7 +526328,7 @@
       "point_diff": -27.0,
       "projected_wins": 6.7,
       "projected_losses": 10.3,
-      "projected_point_diff": -36.6,
+      "projected_point_diff": -36.8,
       "current_division_rank": 3,
       "projected_division_rank": 3,
       "division_rank_delta": 0
@@ -526330,7 +526344,7 @@
       "point_diff": -73.0,
       "projected_wins": 5.0,
       "projected_losses": 12.0,
-      "projected_point_diff": -107.2,
+      "projected_point_diff": -106.3,
       "current_division_rank": 4,
       "projected_division_rank": 4,
       "division_rank_delta": 0
@@ -526394,7 +526408,7 @@
       "point_diff": 5.0,
       "projected_wins": 9.4,
       "projected_losses": 7.6,
-      "projected_point_diff": 2.4,
+      "projected_point_diff": 2.3,
       "current_division_rank": 4,
       "projected_division_rank": 4,
       "division_rank_delta": 0
@@ -526426,7 +526440,7 @@
       "point_diff": -17.0,
       "projected_wins": 7.1,
       "projected_losses": 9.9,
-      "projected_point_diff": -47.4,
+      "projected_point_diff": -47.5,
       "current_division_rank": 1,
       "projected_division_rank": 2,
       "division_rank_delta": -1
