@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T19:22:42.524955+00:00",
+  "generated_at": "2026-11-22T01:26:20.512387+00:00",
   "season": 2026,
   "current_week": 11,
   "weeks": {
@@ -252002,9 +252002,9 @@
           "market_home_win_probability": 0.915,
           "conditions": {
             "kind": "cloudy",
-            "temp_f": 66,
-            "wind_mph": 13,
-            "precip_pct": 1,
+            "temp_f": 67,
+            "wind_mph": 14,
+            "precip_pct": 2,
             "source": "open-meteo"
           }
         },
@@ -252027,12 +252027,12 @@
           "spread_line": 3.0,
           "total_line": 43.5,
           "stadium": "Bank of America Stadium",
-          "market_home_win_probability": 0.585,
+          "market_home_win_probability": 0.5808,
           "conditions": {
             "kind": "cloudy",
             "temp_f": 59,
-            "wind_mph": 7,
-            "precip_pct": 41,
+            "wind_mph": 8,
+            "precip_pct": 23,
             "source": "open-meteo"
           }
         },
@@ -252057,10 +252057,10 @@
           "stadium": "Soldier Field",
           "market_home_win_probability": 0.845,
           "conditions": {
-            "kind": "cloudy",
-            "temp_f": 57,
-            "wind_mph": 7,
-            "precip_pct": 94,
+            "kind": "rain",
+            "temp_f": 54,
+            "wind_mph": 12,
+            "precip_pct": 70,
             "source": "open-meteo"
           }
         },
@@ -252109,9 +252109,9 @@
           "temp": null,
           "wind": null,
           "spread_line": 4.5,
-          "total_line": 46.5,
+          "total_line": 47.5,
           "stadium": "Ford Field",
-          "market_home_win_probability": 0.695,
+          "market_home_win_probability": 0.685,
           "conditions": {
             "kind": "dome",
             "temp_f": null,
@@ -252141,8 +252141,8 @@
           "stadium": "GEHA Field at Arrowhead Stadium",
           "market_home_win_probability": 0.915,
           "conditions": {
-            "kind": "cloudy",
-            "temp_f": 45,
+            "kind": "clear",
+            "temp_f": 46,
             "wind_mph": 15,
             "precip_pct": 0,
             "source": "open-meteo"
@@ -252230,7 +252230,7 @@
           "spread_line": -3.5,
           "total_line": 37.5,
           "stadium": "Lincoln Financial Field",
-          "market_home_win_probability": 0.345
+          "market_home_win_probability": 0.3515
         },
         {
           "game_id": "2026_11_MIN_SF",
@@ -252248,7 +252248,7 @@
           "surface": "grass",
           "temp": null,
           "wind": null,
-          "spread_line": 3.0,
+          "spread_line": 3.5,
           "total_line": 46.5,
           "stadium": "Estadio Banorte",
           "market_home_win_probability": 0.615
@@ -252346,8 +252346,8 @@
           "away_win_prob": 0.27976642989451983,
           "home_cover_prob": 0.5940165404316279,
           "away_cover_prob": 0.4059834595683721,
-          "over_prob": 0.4094673686640242,
-          "under_prob": 0.5905326313359758,
+          "over_prob": 0.3781717324345071,
+          "under_prob": 0.6218282675654929,
           "predicted_margin": 7.597103826430903,
           "predicted_total": 43.68675994873047,
           "sigma": 13.019094300495805,
@@ -252422,8 +252422,8 @@
         "2026_11_MIN_SF": {
           "home_win_prob": 0.5973867924576954,
           "away_win_prob": 0.40261320754230456,
-          "home_cover_prob": 0.5064458685056564,
-          "away_cover_prob": 0.4935541314943436,
+          "home_cover_prob": 0.4911254511831873,
+          "away_cover_prob": 0.5088745488168127,
           "over_prob": 0.456325585512374,
           "under_prob": 0.543674414487626,
           "predicted_margin": 3.2103638188588928,
@@ -280377,7 +280377,7 @@
           "spread_line": 3.0,
           "total_line": 45.5,
           "stadium": "SoFi Stadium",
-          "market_home_win_probability": 0.599,
+          "market_home_win_probability": 0.5891,
           "conditions": {
             "kind": "dome",
             "temp_f": null,
@@ -280405,7 +280405,7 @@
           "spread_line": -2.5,
           "total_line": 55.5,
           "stadium": "Ford Field",
-          "market_home_win_probability": 0.4221,
+          "market_home_win_probability": 0.425,
           "conditions": {
             "kind": "dome",
             "temp_f": null,
@@ -280433,7 +280433,7 @@
           "spread_line": 8.5,
           "total_line": 47.5,
           "stadium": "AT&T Stadium",
-          "market_home_win_probability": 0.7811,
+          "market_home_win_probability": 0.785,
           "conditions": {
             "kind": "dome",
             "temp_f": null,
@@ -280461,12 +280461,12 @@
           "spread_line": 3.0,
           "total_line": 51.5,
           "stadium": "Highmark Stadium",
-          "market_home_win_probability": 0.592,
+          "market_home_win_probability": 0.5891,
           "conditions": {
             "kind": "rain",
-            "temp_f": 35,
-            "wind_mph": 19,
-            "precip_pct": 33,
+            "temp_f": 38,
+            "wind_mph": 17,
+            "precip_pct": 42,
             "source": "open-meteo"
           }
         },
@@ -280489,11 +280489,11 @@
           "spread_line": -2.5,
           "total_line": 40.5,
           "stadium": "Acrisure Stadium",
-          "market_home_win_probability": 0.4573,
+          "market_home_win_probability": 0.455,
           "conditions": {
             "kind": "rain",
-            "temp_f": 40,
-            "wind_mph": 14,
+            "temp_f": 43,
+            "wind_mph": 10,
             "precip_pct": 10,
             "source": "open-meteo"
           }
@@ -280517,12 +280517,12 @@
           "spread_line": 10.0,
           "total_line": 52.5,
           "stadium": "Paycor Stadium",
-          "market_home_win_probability": 0.8267,
+          "market_home_win_probability": 0.83,
           "conditions": {
             "kind": "clear",
-            "temp_f": 50,
-            "wind_mph": 6,
-            "precip_pct": 6,
+            "temp_f": 49,
+            "wind_mph": 4,
+            "precip_pct": 7,
             "source": "open-meteo"
           }
         },
@@ -280545,7 +280545,7 @@
           "spread_line": 6.5,
           "total_line": 44.5,
           "stadium": "Reliant Stadium",
-          "market_home_win_probability": 0.7387
+          "market_home_win_probability": 0.73
         },
         {
           "game_id": "2026_12_NYG_IND",
@@ -280566,7 +280566,7 @@
           "spread_line": -6.5,
           "total_line": 43.5,
           "stadium": "Lucas Oil Stadium",
-          "market_home_win_probability": 0.2723
+          "market_home_win_probability": 0.2687
         },
         {
           "game_id": "2026_12_TEN_JAX",
@@ -280587,7 +280587,7 @@
           "spread_line": 14.5,
           "total_line": 46.5,
           "stadium": "EverBank Stadium",
-          "market_home_win_probability": 0.895
+          "market_home_win_probability": 0.89
         },
         {
           "game_id": "2026_12_NYJ_MIA",
@@ -280608,7 +280608,7 @@
           "spread_line": -3.0,
           "total_line": 41.5,
           "stadium": "Hard Rock Stadium",
-          "market_home_win_probability": 0.3869
+          "market_home_win_probability": 0.392
         },
         {
           "game_id": "2026_12_ATL_MIN",
@@ -280629,7 +280629,7 @@
           "spread_line": 7.0,
           "total_line": 42.5,
           "stadium": "U.S. Bank Stadium",
-          "market_home_win_probability": 0.745
+          "market_home_win_probability": 0.7463
         },
         {
           "game_id": "2026_12_NE_LAC",
@@ -280671,7 +280671,7 @@
           "spread_line": -6.5,
           "total_line": 42.5,
           "stadium": "State Farm Stadium",
-          "market_home_win_probability": 0.255
+          "market_home_win_probability": 0.2613
         },
         {
           "game_id": "2026_12_SEA_SF",
@@ -280692,7 +280692,7 @@
           "spread_line": 2.5,
           "total_line": 46.5,
           "stadium": "Levi's Stadium",
-          "market_home_win_probability": 0.5693
+          "market_home_win_probability": 0.5764
         },
         {
           "game_id": "2026_12_LV_CLE",
@@ -280713,7 +280713,7 @@
           "spread_line": 4.5,
           "total_line": 40.5,
           "stadium": "Huntington Bank Field",
-          "market_home_win_probability": 0.6584
+          "market_home_win_probability": 0.6517
         },
         {
           "game_id": "2026_12_CAR_TB",
@@ -280734,7 +280734,7 @@
           "spread_line": 2.5,
           "total_line": 43.5,
           "stadium": "Raymond James Stadium",
-          "market_home_win_probability": 0.5707
+          "market_home_win_probability": 0.5729
         }
       ],
       "predictions": {
@@ -318637,7 +318637,14 @@
           "spread_line": null,
           "total_line": null,
           "stadium": "Soldier Field",
-          "market_home_win_probability": null
+          "market_home_win_probability": null,
+          "conditions": {
+            "kind": "rain",
+            "temp_f": 40,
+            "wind_mph": 11,
+            "precip_pct": 19,
+            "source": "open-meteo"
+          }
         },
         {
           "game_id": "2026_13_CIN_CLE",
